@@ -8,17 +8,17 @@ useHead({
   title: 'Vue 3 - Weather App',
 })
 const weatherForecast = ref<WeatherForecast.WeatherResponse>()
-const inputSearch = ref()
+const refSearchInput = ref()
 const locations = ref<GeoLocation[]>()
 const selectedLocation = ref<GeoLocation>()
 
 onMounted(async() => {
-  inputSearch.value?.$el.focus()
+  refSearchInput.value?.$el.focus()
 })
 
 const onSearch = async(search: string) => {
   try {
-    const apiResponse = await geoLocationService.getCityLocation({ city: search ?? inputSearch.value?.value ?? '' })
+    const apiResponse = await geoLocationService.getCityLocation({ city: search ?? refSearchInput.value?.value ?? '' })
     locations.value = apiResponse.data
   }
   catch (err) {
@@ -41,19 +41,19 @@ const getWeatherForecast = async({ lat, lon }: GeoLocation) => {
 
 <template>
   <div class="w-full bg-sky-600">
-    <div class="sm:mx-auto sm:max-w-3xl flex flex-row items-center space-x-3">
-      <div class="text-white text-3xl font-bold pl-4 py-4">
+    <div class="sm:mx-auto sm:max-w-3xl flex flex-row items-center space-x-3 py-4">
+      <div class="text-white text-3xl font-bold tracking-wide">
         Weather App
       </div>
       <Combobox v-model="selectedLocation" class="grow" @update:model-value="getWeatherForecast">
         <div class="relative">
           <ComboboxInput
-            ref="inputSearch"
+            ref="refSearchInput"
             class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             placeholder="Zoek een plaats"
             @change="onSearch($event.target.value)"
           />
-          <ComboboxButton class="absolute inset-y-0 right-0 flex items-center pr-2 ">
+          <ComboboxButton class="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-500">
             <Icon:mdi:arrow-up-down />
           </ComboboxButton>
           <TransitionRoot leave="transition ease-in duration-100" leave-from="opacity-100" leave-to="opacity-0">
@@ -75,7 +75,7 @@ const getWeatherForecast = async({ lat, lon }: GeoLocation) => {
                     </div>
                     <div
                       class="text-xs text-slate-400 flex items-center space-x-2"
-                      :class="{ 'text-slate-200': active }"
+                      :class="{ 'text-slate-100': active }"
                     >
                       <icon-akar-icons:location />
                       <span>{{ `${location.lat}, ${location.lon}` }}</span>
@@ -90,8 +90,8 @@ const getWeatherForecast = async({ lat, lon }: GeoLocation) => {
     </div>
   </div>
 
-  <div v-if="selectedLocation" class="sm:mx-auto sm:max-w-3xl min-h-[80vh]">
-    <WeatherCard v-if="weatherForecast" :weather="weatherForecast" :location="selectedLocation" class="my-7" />
+  <div v-if="selectedLocation" class="sm:mx-auto sm:max-w-3xl">
+    <WeatherCard v-if="weatherForecast" :weather="weatherForecast" :location="selectedLocation" class="mt-7" />
   </div>
 </template>
 
