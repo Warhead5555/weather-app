@@ -4,10 +4,24 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
-    'Icon:bx:bxMoon': typeof import('~icons/bx/bx-moon')['default']
-    'Icon:bx:bxsMoon': typeof import('~icons/bx/bxs-moon')['default']
-    'IconAkarIcons:githubFill': typeof import('~icons/akar-icons/github-fill')['default']
+    'Icon:mdi:arrowUpDown': typeof import('~icons/mdi/arrow-up-down')['default']
+    'Icon:mdi:drop': typeof import('~icons/mdi/drop')['default']
+    'Icon:mdi:weatherCloudy': typeof import('~icons/mdi/weather-cloudy')['default']
+    'Icon:mdi:weatherFog': typeof import('~icons/mdi/weather-fog')['default']
+    'Icon:mdi:weatherLightning': typeof import('~icons/mdi/weather-lightning')['default']
+    'Icon:mdi:weatherNight': typeof import('~icons/mdi/weather-night')['default']
+    'Icon:mdi:weatherNightPartlyCloudy': typeof import('~icons/mdi/weather-night-partly-cloudy')['default']
+    'Icon:mdi:weatherPartlyCloudy': typeof import('~icons/mdi/weather-partly-cloudy')['default']
+    'Icon:mdi:weatherPouring': typeof import('~icons/mdi/weather-pouring')['default']
+    'Icon:mdi:weatherRainy': typeof import('~icons/mdi/weather-rainy')['default']
+    'Icon:mdi:weatherSnowy': typeof import('~icons/mdi/weather-snowy')['default']
+    'Icon:mdi:weatherSunny': typeof import('~icons/mdi/weather-sunny')['default']
+    'Icon:mdi:weatherSunsetDown': typeof import('~icons/mdi/weather-sunset-down')['default']
+    'Icon:mdi:weatherSunsetUp': typeof import('~icons/mdi/weather-sunset-up')['default']
+    'IconAkarIcons:location': typeof import('~icons/akar-icons/location')['default']
+    'IconIc:baselineCheck': typeof import('~icons/ic/baseline-check')['default']
+    WeatherCard: typeof import('./src/components/WeatherCard.vue')['default']
+    WeatherIcon: typeof import('./src/components/WeatherIcon.vue')['default']
   }
 }
 
