@@ -1,6 +1,6 @@
 # Vue 3 - Weather App
 
-This Project is based on Vite starter template [Vitailse](https://github.com/zynth17/vitailse).
+This project is based on the Vite starter template [Vitailse](https://github.com/zynth17/vitailse).
 
 ## NOTE
 An Open Weather API key must be specified in the .env or .env.local file in the variable 'VITE_API_KEY'. 
