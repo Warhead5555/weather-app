@@ -15,7 +15,7 @@ export const weatherHttpClient: AxiosInstance = axios.create({
  * Axios http client for the OpenWeather Geolocation API
  */
 export const geoLocationHttpClient: AxiosInstance = axios.create({
-  baseURL: 'http://api.openweathermap.org/geo/1.0',
+  baseURL: 'https://api.openweathermap.org/geo/1.0',
   headers: {
     'Content-type': 'application/json',
   },

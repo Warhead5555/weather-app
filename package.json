@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
+		"prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skipping pnpm install",
 		"build": "vite-ssg build",
 		"serve": "vite preview",
 		"https-preview": "serve dist",
@@ -48,6 +49,7 @@
 		"vite-plugin-pwa": "^0.11.13",
 		"vite-plugin-vue-layouts": "^0.6.0",
 		"vite-ssg": "^0.17.10",
-		"vue-tsc": "^0.31.4"
+		"vue-tsc": "^0.31.4",
+		"workbox-window": "^6.5.2"
 	}
 }
