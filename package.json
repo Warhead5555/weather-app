@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
+		"prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skipping pnpm install",
 		"build": "vite-ssg build",
 		"serve": "vite preview",
 		"https-preview": "serve dist",
