@@ -54,6 +54,12 @@ const { weather } = toRefs(props)
           Wind
         </div>
         <div class="text-base font-semibold">
+          <div class="rounded-full p-1 mr-3 inline-block float-left border border-white">
+            <icon:ic:outline-navigation
+              class="font-mono"
+              :style="{ transform: 'rotate('+Math.abs(180+weather.current.wind_deg)+'deg)'}"
+            />
+          </div>
           {{ weather.current.wind_speed }} m/s
           {{ getWindDirection(weather.current.wind_deg) }}
         </div>

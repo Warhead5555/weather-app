@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    'Icon:ic:outlineNavigation': typeof import('~icons/ic/outline-navigation')['default']
     'Icon:mdi:arrowUpDown': typeof import('~icons/mdi/arrow-up-down')['default']
     'Icon:mdi:drop': typeof import('~icons/mdi/drop')['default']
     'Icon:mdi:weatherCloudy': typeof import('~icons/mdi/weather-cloudy')['default']
